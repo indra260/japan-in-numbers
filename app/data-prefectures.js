@@ -1,0 +1,60 @@
+// All 47 prefectures: capital, region and population from the 2020 Population Census
+// (Statistics Bureau, final counts; national total 126,146,099).
+// share is computed against that census total at render time.
+
+export const PREFECTURE_SOURCE = 'Statistics Bureau, Population Census 2020 (final counts)';
+
+export const PREFECTURES = [
+  { name: 'Hokkaid\u014d', capital: 'Sapporo', region: 'Hokkaid\u014d', pop: 5224614 },
+  { name: 'Aomori', capital: 'Aomori', region: 'T\u014dhoku', pop: 1237984 },
+  { name: 'Iwate', capital: 'Morioka', region: 'T\u014dhoku', pop: 1210534 },
+  { name: 'Miyagi', capital: 'Sendai', region: 'T\u014dhoku', pop: 2301996 },
+  { name: 'Akita', capital: 'Akita', region: 'T\u014dhoku', pop: 959502 },
+  { name: 'Yamagata', capital: 'Yamagata', region: 'T\u014dhoku', pop: 1068027 },
+  { name: 'Fukushima', capital: 'Fukushima', region: 'T\u014dhoku', pop: 1833152 },
+  { name: 'Ibaraki', capital: 'Mito', region: 'Kant\u014d', pop: 2867009 },
+  { name: 'Tochigi', capital: 'Utsunomiya', region: 'Kant\u014d', pop: 1933146 },
+  { name: 'Gunma', capital: 'Maebashi', region: 'Kant\u014d', pop: 1939110 },
+  { name: 'Saitama', capital: 'Saitama', region: 'Kant\u014d', pop: 7344765 },
+  { name: 'Chiba', capital: 'Chiba', region: 'Kant\u014d', pop: 6284480 },
+  { name: 'Tokyo', capital: 'Shinjuku (Tokyo)', region: 'Kant\u014d', pop: 14047594 },
+  { name: 'Kanagawa', capital: 'Yokohama', region: 'Kant\u014d', pop: 9237337 },
+  { name: 'Niigata', capital: 'Niigata', region: 'Ch\u016bbu', pop: 2201272 },
+  { name: 'Toyama', capital: 'Toyama', region: 'Ch\u016bbu', pop: 1034814 },
+  { name: 'Ishikawa', capital: 'Kanazawa', region: 'Ch\u016bbu', pop: 1132497 },
+  { name: 'Fukui', capital: 'Fukui', region: 'Ch\u016bbu', pop: 766863 },
+  { name: 'Yamanashi', capital: 'K\u014dfu', region: 'Ch\u016bbu', pop: 809974 },
+  { name: 'Nagano', capital: 'Nagano', region: 'Ch\u016bbu', pop: 2048011 },
+  { name: 'Gifu', capital: 'Gifu', region: 'Ch\u016bbu', pop: 1978742 },
+  { name: 'Shizuoka', capital: 'Shizuoka', region: 'Ch\u016bbu', pop: 3633202 },
+  { name: 'Aichi', capital: 'Nagoya', region: 'Ch\u016bbu', pop: 7542415 },
+  { name: 'Mie', capital: 'Tsu', region: 'Kansai', pop: 1770632 },
+  { name: 'Shiga', capital: '\u014ctsu', region: 'Kansai', pop: 1413610 },
+  { name: 'Kyoto', capital: 'Kyoto', region: 'Kansai', pop: 2578087 },
+  { name: 'Osaka', capital: 'Osaka', region: 'Kansai', pop: 8837685 },
+  { name: 'Hy\u014dgo', capital: 'K\u014dbe', region: 'Kansai', pop: 5465002 },
+  { name: 'Nara', capital: 'Nara', region: 'Kansai', pop: 1324473 },
+  { name: 'Wakayama', capital: 'Wakayama', region: 'Kansai', pop: 922584 },
+  { name: 'Tottori', capital: 'Tottori', region: 'Ch\u016bgoku', pop: 553407 },
+  { name: 'Shimane', capital: 'Matsue', region: 'Ch\u016bgoku', pop: 671126 },
+  { name: 'Okayama', capital: 'Okayama', region: 'Ch\u016bgoku', pop: 1888432 },
+  { name: 'Hiroshima', capital: 'Hiroshima', region: 'Ch\u016bgoku', pop: 2799702 },
+  { name: 'Yamaguchi', capital: 'Yamaguchi', region: 'Ch\u016bgoku', pop: 1342059 },
+  { name: 'Tokushima', capital: 'Tokushima', region: 'Shikoku', pop: 719559 },
+  { name: 'Kagawa', capital: 'Takamatsu', region: 'Shikoku', pop: 950244 },
+  { name: 'Ehime', capital: 'Matsuyama', region: 'Shikoku', pop: 1334841 },
+  { name: 'K\u014dchi', capital: 'K\u014dchi', region: 'Shikoku', pop: 691527 },
+  { name: 'Fukuoka', capital: 'Fukuoka', region: 'Ky\u016bsh\u016b', pop: 5135214 },
+  { name: 'Saga', capital: 'Saga', region: 'Ky\u016bsh\u016b', pop: 811442 },
+  { name: 'Nagasaki', capital: 'Nagasaki', region: 'Ky\u016bsh\u016b', pop: 1312317 },
+  { name: 'Kumamoto', capital: 'Kumamoto', region: 'Ky\u016bsh\u016b', pop: 1738301 },
+  { name: '\u014cita', capital: '\u014cita', region: 'Ky\u016bsh\u016b', pop: 1123852 },
+  { name: 'Miyazaki', capital: 'Miyazaki', region: 'Ky\u016bsh\u016b', pop: 1069576 },
+  { name: 'Kagoshima', capital: 'Kagoshima', region: 'Ky\u016bsh\u016b', pop: 1588256 },
+  { name: 'Okinawa', capital: 'Naha', region: 'Ky\u016bsh\u016b', pop: 1467480 },
+];
+
+export const PREFECTURE_FACTS = [
+  { title: 'Tokyo outweighs whole regions', text: 'Tokyo\u2019s 14.0 million people are more than the entire T\u014dhoku region (8.6 million across six prefectures) or the whole island of Ky\u016bsh\u016b\u2019s seven prefectures minus Fukuoka. The smallest prefecture, Tottori (553,407), would fit into Tokyo 25 times over.' },
+  { title: 'Only a handful grew', text: 'Between the 2015 and 2020 censuses only nine prefectures gained people \u2014 Tokyo, its three neighbours, Aichi, Shiga, Osaka, Fukuoka and Okinawa. Akita shrank fastest, losing about 6% in five years.' },
+];

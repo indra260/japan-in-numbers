@@ -1,0 +1,152 @@
+/* Japan in Numbers — design system.
+   Warm paper, deep indigo (ai-iro) and vermilion (shu-iro): a palette drawn from
+   Japanese print, set in the system sans so nothing is fetched and text stays crisp. */
+:root {
+  --paper: #faf7f1;
+  --card: #ffffff;
+  --ink: #232838;
+  --muted: #6f6a5e;
+  --indigo: #22336b;
+  --indigo-deep: #182349;
+  --vermilion: #bc2f27;
+  --gold: #c9962e;
+  --line: #e7dfd0;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.site-head {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px;
+  padding: 14px clamp(16px, 4vw, 40px);
+  background: rgba(250, 247, 241, 0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 3px solid var(--indigo);
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.brand-disc {
+  width: 34px; height: 34px; border-radius: 50%; flex: none;
+  background: var(--vermilion);
+  box-shadow: inset 0 0 0 3px #fff, 0 0 0 1px var(--line);
+}
+.brand-text { font-weight: 800; font-size: 1.15rem; letter-spacing: 0.01em; line-height: 1.15; }
+.brand-text small { display: block; font-weight: 500; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+.site-nav a {
+  color: var(--indigo); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  padding: 7px 12px; border-radius: 999px;
+}
+.site-nav a:hover { background: #eee7d7; }
+.site-nav a.is-active { background: var(--indigo); color: #fff; }
+
+/* Layout */
+.view { max-width: 1080px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 48px; }
+.loading { color: var(--muted); }
+.hero { padding: 26px 0 6px; }
+.kicker { color: var(--vermilion); font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; margin: 0 0 8px; }
+h1 { font-size: clamp(2rem, 5.4vw, 3.1rem); line-height: 1.08; margin: 0 0 12px; letter-spacing: -0.01em; }
+.intro { font-size: 1.08rem; color: #454b5e; max-width: 62ch; margin: 0; }
+.section-head { padding: 18px 0 4px; }
+.group-head { margin: 34px 0 12px; font-size: 1.3rem; color: var(--indigo-deep); }
+
+/* Stat cards */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 22px 0 6px; }
+.stat-card {
+  background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--indigo);
+  border-radius: var(--radius); padding: 16px 18px 12px;
+  box-shadow: 0 1px 2px rgba(35, 40, 56, 0.05);
+}
+.stat-card:nth-child(3n+2) { border-top-color: var(--vermilion); }
+.stat-card:nth-child(3n) { border-top-color: var(--gold); }
+.stat-value { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.1; }
+.stat-label { font-weight: 700; color: var(--indigo-deep); margin-top: 2px; }
+.stat-note { color: #454b5e; font-size: 0.92rem; margin: 6px 0 10px; }
+.stat-source { color: var(--muted); font-size: 0.74rem; letter-spacing: 0.03em; border-top: 1px dashed var(--line); padding-top: 7px; }
+
+/* Panels & charts */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; margin: 22px 0; }
+.panel-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 8px; }
+.panel-head h2 { font-size: 1.25rem; margin: 0; }
+.panel-source { color: var(--muted); font-size: 0.78rem; }
+.panel-sub { margin: 18px 0 4px; font-size: 1rem; color: var(--indigo-deep); }
+.chart { width: 100%; height: auto; display: block; }
+.chart .tick { font-size: 11px; fill: var(--muted); }
+.chart .bar-label { font-size: 13px; fill: var(--ink); font-weight: 600; }
+.chart .bar-value { font-size: 13px; fill: var(--ink); font-weight: 700; }
+.chart .stack-value { font-size: 12px; fill: #fff; font-weight: 700; }
+.chart .donut-center { font-size: 17px; fill: var(--ink); font-weight: 800; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 0.86rem; color: #454b5e; }
+.legend-col { flex-direction: column; gap: 5px; }
+.legend-item i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 7px; }
+.chart-note { color: var(--muted); font-size: 0.88rem; margin: 10px 0 0; }
+.donut-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 30px; }
+.donut-wrap .chart { max-width: 320px; }
+
+/* Toggle (overview chart switch) */
+.toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+.toggle-btn { border: 0; background: #f3eee2; color: var(--indigo); font: inherit; font-weight: 600; font-size: 0.9rem; padding: 8px 16px; cursor: pointer; }
+.toggle-btn.is-active { background: var(--indigo); color: #fff; }
+
+/* Fact cards */
+.fact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 22px 0 6px; }
+.fact-card { background: #f4efe3; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+.fact-card h3 { margin: 0 0 6px; font-size: 1.02rem; color: var(--indigo-deep); }
+.fact-card p { margin: 0; font-size: 0.94rem; color: #3c4257; }
+
+/* Doors (overview section links) */
+.door-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 26px 0 0; }
+.door {
+  display: block; text-decoration: none; color: var(--ink);
+  background: var(--indigo); border-radius: var(--radius); padding: 18px;
+}
+.door strong { display: block; color: #fff; font-size: 1.05rem; margin-bottom: 4px; }
+.door span { color: #c9d2ee; font-size: 0.9rem; }
+.door:hover { background: var(--indigo-deep); }
+
+/* Prefecture controls & table */
+.controls { display: flex; flex-wrap: wrap; align-items: end; gap: 14px 22px; margin: 20px 0 12px; }
+.control { display: grid; gap: 5px; font-weight: 700; font-size: 0.85rem; color: var(--indigo-deep); }
+.control input, .control select {
+  font: inherit; font-weight: 500; color: var(--ink);
+  padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; min-width: 220px;
+}
+.control-readout { color: var(--muted); font-size: 0.9rem; margin: 0 0 8px; }
+.table-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.pf-table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.pf-table th, .pf-table td { padding: 9px 14px; text-align: left; border-bottom: 1px solid #efe9db; white-space: nowrap; }
+.pf-table thead th { background: #f3eee2; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--indigo-deep); }
+.pf-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.pf-table tbody tr:hover { background: #faf5ea; }
+.th-sort { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; text-transform: inherit; letter-spacing: inherit; padding: 0; text-decoration: underline dotted; }
+.pf-table .empty { text-align: center; color: var(--muted); padding: 22px; }
+
+/* Footer */
+.site-foot { border-top: 1px solid var(--line); padding: 22px clamp(16px, 4vw, 40px) 34px; max-width: 1080px; margin: 0 auto; color: #454b5e; font-size: 0.9rem; }
+.foot-fine { color: var(--muted); font-size: 0.8rem; }
+
+/* Phone layout */
+@media (max-width: 640px) {
+  .site-head { position: static; }
+  .site-nav { margin-left: 0; }
+  .site-nav a { padding: 6px 9px; font-size: 0.88rem; }
+  .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-value { font-size: 1.45rem; }
+  .panel { padding: 16px 14px; }
+  .chart .bar-label { font-size: 12px; }
+  .control input, .control select { min-width: 0; width: 100%; }
+  .controls { display: grid; }
+  .donut-wrap .chart { max-width: 250px; margin: 0 auto; }
+}
+@media (max-width: 400px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
