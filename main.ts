@@ -14,13 +14,54 @@
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-frontend.ts';
 
 const here = fileURLToPath(new URL('.', import.meta.url));
 const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+
+// ---------------------------------------------------------------------------
+// Pre-flight audit, added for the Japan in Numbers entry: before anything is
+// handed in, walk the payload the way the scorer will see it and refuse to
+// submit a broken site. The audit only reads; it never changes a byte of the
+// site, the screenshots or the dossier the vendored library writes below.
+
+function walkFiles(root, base = root, acc = []) {
+  for (const name of readdirSync(base)) {
+    const full = join(base, name);
+    if (statSync(full).isDirectory()) walkFiles(root, full, acc);
+    else acc.push(full);
+  }
+  return acc;
+}
+
+function auditPayload() {
+  const problems = [];
+  const appDir = join(here, 'app');
+  if (!existsSync(join(appDir, 'index.html'))) problems.push('app/index.html is missing');
+  const appFiles = walkFiles(appDir);
+  const appBytes = appFiles.reduce((sum, f) => sum + statSync(f).size, 0);
+  if (appFiles.length > 993) problems.push(`app/ holds ${appFiles.length} files, over the 993 cap`);
+  if (appBytes > 16777216) problems.push(`app/ weighs ${appBytes} bytes, over the 16 MiB cap`);
+  const shotDir = join(here, 'screenshots');
+  const shots = existsSync(shotDir) ? readdirSync(shotDir).filter((n) => /\.(png|jpe?g)$/i.test(n)).sort() : [];
+  if (shots.length === 0) problems.push('no screenshots to show the judge');
+  if (shots.length > 4) problems.push(`${shots.length} screenshots, over the cap of 4`);
+  for (const shot of shots) {
+    const size = statSync(join(shotDir, shot)).size;
+    if (size > 262144) problems.push(`screenshots/${shot} is ${size} bytes, over the 256 KiB cap`);
+  }
+  if (problems.length > 0) {
+    console.error('Pre-flight audit failed; nothing was handed in:');
+    for (const problem of problems) console.error(`  - ${problem}`);
+    process.exit(1);
+  }
+  console.log(`Pre-flight audit passed: ${appFiles.length} app files (${appBytes} bytes), ${shots.length} screenshots within caps.`);
+}
+
+auditPayload();
 
 mkdirSync(out, { recursive: true });
 cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
