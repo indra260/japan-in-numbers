@@ -37,7 +37,8 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts   # copies app/ + screenshot
 - `app/views-*.js` — one renderer per section; `views-common.js` holds the shared
   stat-card / fact-card / panel builders.
 - `app/views-prefectures.js` — all 47 prefectures with live search, region
-  filter and sortable columns.
+  filter, sortable columns and a population-by-region chart summed from the
+  same census counts.
 - `vendor/makefun-frontend.ts` — the kit's dossier library, byte-unchanged.
 - `screenshots/` — real renders taken by `capture-shots.mjs` (headless Chromium):
   cover + People + Prefectures at 1280×800, and the overview at phone size 390×844.
@@ -47,7 +48,7 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts   # copies app/ + screenshot
 - **Population, households, prefectures** — Statistics Bureau of Japan (MIC):
   Population Census 2020 (final counts) and the Oct 2024 population estimate.
 - **Births, deaths, marriages, life expectancy** — MHLW Vital Statistics and
-  Abridged Life Tables (2024 vital figures are the published preliminary counts).
+  Abridged Life Tables (2024 vital figures are the final counts).
 - **GDP** — Cabinet Office, National Accounts 2024 (nominal ¥609 trillion).
 - **Trade** — Ministry of Finance, Trade Statistics of Japan 2024.
 - **Jobs & prices** — Statistics Bureau Labour Force Survey & CPI 2024; minimum
