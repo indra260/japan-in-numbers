@@ -7,7 +7,7 @@ import { statCards, factCards, panel, sectionHead } from './views-common.js';
 export function render(el) {
   el.innerHTML = `
     ${sectionHead('People & Society', 'Fewer births, longer lives',
-      'Japan\u2019s defining story. Births have halved since the second baby boom while deaths climb with the age of the population \u2014 and the people who are born live longer than almost anyone else on Earth.')}
+      'Japan\u2019s defining story. Births have fallen by two-thirds since the second baby boom while deaths climb with the age of the population \u2014 and the people who are born live longer than almost anyone else on Earth.')}
     ${statCards(PEOPLE_STATS)}
     ${panel('Births and deaths, thousands per year', BIRTHS_DEATHS.source,
       groupedBars({ rows: BIRTHS_DEATHS.points.map((p) => ({ year: p.year, a: p.births, b: p.deaths })), aLabel: 'Births', bLabel: 'Deaths', unit: 'Deaths passed births for good in 2007. The 2024 gap \u2014 about 919,000 more deaths \u2014 is the widest ever recorded.' }))}
