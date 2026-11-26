@@ -38,6 +38,6 @@ export const ECONOMY_STATS = [
 
 export const ECONOMY_FACTS = [
   { title: 'What Japan sells the world', text: 'Cars and car parts are the export engine (about \u00a517 trillion of motor vehicles alone), followed by semiconductors and electronic parts, semiconductor-making equipment and steel. Energy \u2014 LNG, coal and oil \u2014 dominates the import bill.' },
-  { title: 'The shrinking-paycheck story is turning', text: 'Spring wage talks (shunt\u014d) delivered raises above 5% in both 2024 and 2025 \u2014 the largest in three decades \u2014 as firms compete for scarce workers in the tightest labour market since the 1970s.' },
+  { title: 'The shrinking-paycheck story is turning', text: 'Spring wage talks (shunt\u014d) delivered raises above 5% in both 2024 and 2025 \u2014 the largest in three decades \u2014 as firms compete for scarce workers in the tightest labour market in decades.' },
   { title: 'Women joined the workforce', text: 'The employment rate of women aged 15\u201364 reached about 78% in 2024, up from roughly 60% in 2000 \u2014 one of the biggest quiet changes in the economy, and a key reason total employment kept growing while the working-age population shrank.' },
 ];

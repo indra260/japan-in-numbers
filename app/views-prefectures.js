@@ -2,10 +2,20 @@
 // sortable columns. The table is rendered from data-prefectures.js and re-rendered
 // on every control change — nothing here is decorative.
 import { PREFECTURES, PREFECTURE_SOURCE, PREFECTURE_FACTS } from './data-prefectures.js';
-import { factCards, sectionHead } from './views-common.js';
+import { barChart } from './charts.js';
+import { factCards, panel, sectionHead } from './views-common.js';
 
 const TOTAL = PREFECTURES.reduce((a, p) => a + p.pop, 0);
 const REGIONS = ['All regions', ...new Set(PREFECTURES.map((p) => p.region))];
+// Region totals are summed from the same census counts the table shows, so the
+// chart can never disagree with the rows above it. Values in millions.
+const REGION_ROWS = [...new Set(PREFECTURES.map((p) => p.region))]
+  .map((region) => ({
+    label: region,
+    value: Math.round(PREFECTURES.filter((p) => p.region === region)
+      .reduce((a, p) => a + p.pop, 0) / 1e5) / 10,
+  }))
+  .sort((a, b) => b.value - a.value);
 
 export function render(el) {
   el.innerHTML = `
@@ -33,6 +43,8 @@ export function render(el) {
       </table>
     </div>
     <p class="chart-note">Source: ${PREFECTURE_SOURCE}. Share = the prefecture\u2019s share of the national census total.</p>
+    ${panel('Population by region, millions', PREFECTURE_SOURCE + ' \u2014 regional totals summed from the 47 prefectures above',
+      barChart({ rows: REGION_ROWS, unit: 'M', decimals: 1 }))}
     ${factCards(PREFECTURE_FACTS)}`;
 
   const body = el.querySelector('#pf-body');

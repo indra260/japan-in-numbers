@@ -5,7 +5,7 @@ export const HEALTH_STATS = [
   { value: '87.1 / 81.1', label: 'Life expectancy, women / men', note: 'Years at birth \u2014 3rd and among the top worldwide', source: 'MHLW', year: 2023 },
   { value: '1.8', label: 'Infant deaths per 1,000 births', note: 'Among the lowest rates ever recorded anywhere', source: 'MHLW / OECD', year: 2023 },
   { value: '11.4%', label: 'Of GDP spent on health', note: 'Universal coverage since 1961; patients pay 10\u201330% at the window', source: 'OECD Health Statistics', year: 2022 },
-  { value: '2.6', label: 'Doctors per 1,000 people', note: 'Fewer than the OECD average \u2014 but 12.6 hospital beds per 1,000, the most in the OECD', source: 'OECD', year: 2022 },
+  { value: '2.6', label: 'Doctors per 1,000 people', note: 'Fewer than the OECD average \u2014 but 12.6 hospital beds per 1,000, second only to South Korea in the OECD', source: 'OECD', year: 2022 },
   { value: '20,320', label: 'Suicides', note: 'Down from a 2003 peak of 34,427; still a national priority', source: 'National Police Agency', year: 2024 },
   { value: '0.2', label: 'Homicides per 100,000', note: 'Among the lowest rates in the world', source: 'UNODC / NPA', year: 2022 },
 ];
@@ -26,7 +26,7 @@ export const PUPILS_TREND = {
 
 export const DAILY_LIFE = [
   { value: '\u224855,700', label: 'Convenience stores', note: 'Roughly one for every 2,200 people, most open 24 hours', source: 'Japan Franchise Association', year: 2024 },
-  { value: '\u22483.9M', label: 'Vending machines', note: 'About one for every 32 people \u2014 drinks machines are half of them', source: 'JVMA', year: 2023 },
+  { value: '\u22483.9M', label: 'Vending machines', note: 'About one for every 32 people \u2014 drinks machines are over half of them', source: 'JVMA', year: 2023 },
   { value: '26', label: 'UNESCO World Heritage sites', note: '21 cultural and 5 natural, from Himeji Castle to Yakushima', source: 'UNESCO / ACA', year: 2024 },
   { value: '50.3 kg', label: 'Rice eaten per person per year', note: 'About 138 g a day \u2014 under half the 1962 peak of 118.3 kg; bread and noodles took the rest', source: 'MAFF food balance sheets', year: 2023 },
   { value: '\u224890%', label: 'People own a smartphone', note: 'Yet cash and paper still thrive alongside the digital', source: 'MIC Communications Survey', year: 2024 },

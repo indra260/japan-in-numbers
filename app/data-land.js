@@ -4,20 +4,20 @@
 export const ENERGY_MIX = {
   source: 'Agency for Natural Resources and Energy, FY2023 electricity mix',
   slices: [
-    { label: 'LNG (gas)', value: 32.0, color: '#3e6fa3' },
-    { label: 'Coal', value: 30.5, color: '#5a5148' },
-    { label: 'Solar', value: 10.4, color: '#e0a51f' },
-    { label: 'Hydro', value: 7.5, color: '#4d9db8' },
+    { label: 'LNG (gas)', value: 32.9, color: '#3e6fa3' },
+    { label: 'Coal', value: 28.3, color: '#5a5148' },
+    { label: 'Solar', value: 9.8, color: '#e0a51f' },
+    { label: 'Hydro', value: 7.6, color: '#4d9db8' },
     { label: 'Nuclear', value: 8.5, color: '#8a6fc9' },
-    { label: 'Oil etc.', value: 6.1, color: '#9c4a2f' },
-    { label: 'Wind, geothermal, biomass & other renewables', value: 5.0, color: '#5d9c6e' },
+    { label: 'Oil etc.', value: 7.4, color: '#9c4a2f' },
+    { label: 'Wind, geothermal, biomass & other renewables', value: 5.5, color: '#5d9c6e' },
   ],
 };
 
 export const LAND_STATS = [
   { value: '14,125', label: 'Islands', note: 'Recounted digitally in 2023 \u2014 the old official figure was 6,852', source: 'Geospatial Information Authority', year: 2023 },
   { value: '67%', label: 'Covered by forest', note: '25.1 million hectares \u2014 among the highest shares in the developed world', source: 'Forestry Agency', year: 2023 },
-  { value: '3,776 m', label: 'Mt Fuji', note: 'The highest point; 110 active volcanoes stand across the arc', source: 'GSI / JMA', year: 2024 },
+  { value: '3,776 m', label: 'Mt Fuji', note: 'The highest point; 111 active volcanoes stand across the arc', source: 'GSI / JMA', year: 2024 },
   { value: '47', label: 'Prefectures', note: 'From Hokkaid\u014d (83,424 km\u00b2) to Kagawa (1,877 km\u00b2)', source: 'GSI', year: 2024 },
   { value: '670 km\u00b2', label: 'Lake Biwa', note: 'The largest lake \u2014 about the size of Singapore', source: 'MLIT', year: 2024 },
   { value: '367 km', label: 'Shinano River', note: 'The longest river, flowing to the Sea of Japan at Niigata', source: 'MLIT', year: 2024 },

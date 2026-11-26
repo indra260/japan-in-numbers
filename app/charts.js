@@ -30,8 +30,23 @@ export function lineChart({ series, width = 720, height = 300, yLabel = '', yDec
     const v = yMin + ((yMax - yMin) * i) / 4, y = Y(v);
     out += `<line x1="${padL}" y1="${y}" x2="${width - padR}" y2="${y}" stroke="${GRID}"/><text x="${padL - 8}" y="${y + 4}" text-anchor="end" class="tick">${fmt(v, yDecimals)}</text>`;
   }
-  const xTicks = series[0].points.filter((_, i) => i % Math.ceil(series[0].points.length / 6) === 0 || i === series[0].points.length - 1);
-  for (const [x] of xTicks) out += `<text x="${X(x)}" y="${height - 8}" text-anchor="middle" class="tick">${x}</text>`;
+  // X tick labels: start from every nth point (plus the last), then enforce a
+  // minimum pixel spacing so close years (2020, 2024) never render jammed
+  // together. The final point always keeps its label; if it crowds the
+  // previous kept tick, the previous one gives way.
+  const pts0 = series[0].points;
+  const step = Math.ceil(pts0.length / 6);
+  const kept = [];
+  pts0.forEach((p, i) => {
+    if (i % step !== 0 && i !== pts0.length - 1) return;
+    if (!kept.length || X(p[0]) - X(kept[kept.length - 1][0]) >= 46) kept.push(p);
+  });
+  const lastPt = pts0[pts0.length - 1];
+  if (kept[kept.length - 1] !== lastPt) {
+    if (kept.length > 1 && X(lastPt[0]) - X(kept[kept.length - 1][0]) < 46) kept.pop();
+    kept.push(lastPt);
+  }
+  for (const [x] of kept) out += `<text x="${X(x)}" y="${height - 8}" text-anchor="middle" class="tick">${x}</text>`;
   if (yLabel) out += `<text x="${padL}" y="${padT - 2}" class="tick">${yLabel}</text>`;
   for (const s of series) {
     const d = s.points.map((p, i) => `${i ? 'L' : 'M'}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(' ');

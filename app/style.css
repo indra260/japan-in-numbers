@@ -146,6 +146,13 @@ h1 { font-size: clamp(2rem, 5.4vw, 3.1rem); line-height: 1.08; margin: 0 0 12px;
   .control input, .control select { min-width: 0; width: 100%; }
   .controls { display: grid; }
   .donut-wrap .chart { max-width: 250px; margin: 0 auto; }
+  /* The full six-column table is 609px wide and pushes Population and Share —
+     the point of the table — off a phone screen. On small screens the Capital
+     and Region columns step aside (both stay searchable and filterable via the
+     controls above); the four remaining columns fit without sideways scroll. */
+  .pf-table th:nth-child(3), .pf-table td:nth-child(3),
+  .pf-table th:nth-child(4), .pf-table td:nth-child(4) { display: none; }
+  .pf-table th, .pf-table td { padding: 8px 10px; }
 }
 @media (max-width: 400px) {
   .stat-grid { grid-template-columns: 1fr; }
