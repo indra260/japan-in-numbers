@@ -50,9 +50,9 @@ body {
 .site-nav a.is-active { background: var(--indigo); color: #fff; }
 
 /* Layout */
-.view { max-width: 1080px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 48px; }
+.view { max-width: 1080px; margin: 0 auto; padding: 18px clamp(16px, 4vw, 40px) 48px; }
 .loading { color: var(--muted); }
-.hero { padding: 26px 0 6px; }
+.hero { padding: 12px 0 2px; }
 .kicker { color: var(--vermilion); font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; margin: 0 0 8px; }
 h1 { font-size: clamp(2rem, 5.4vw, 3.1rem); line-height: 1.08; margin: 0 0 12px; letter-spacing: -0.01em; }
 .intro { font-size: 1.08rem; color: #454b5e; max-width: 62ch; margin: 0; }
@@ -60,7 +60,7 @@ h1 { font-size: clamp(2rem, 5.4vw, 3.1rem); line-height: 1.08; margin: 0 0 12px;
 .group-head { margin: 34px 0 12px; font-size: 1.3rem; color: var(--indigo-deep); }
 
 /* Stat cards */
-.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 22px 0 6px; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 16px 0 4px; }
 .stat-card {
   background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--indigo);
   border-radius: var(--radius); padding: 16px 18px 12px;

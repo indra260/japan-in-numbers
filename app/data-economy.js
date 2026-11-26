@@ -27,12 +27,12 @@ export const TRADE = {
 
 export const ECONOMY_STATS = [
   { value: '\u00a5609T', label: 'Nominal GDP', note: '4th in the world after the US, China and Germany', source: 'Cabinet Office', year: 2024 },
-  { value: '$33,800', label: 'GDP per person', note: 'Nominal, US dollars \u2014 around 33rd worldwide', source: 'IMF, World Economic Outlook', year: 2024 },
+  { value: '$33,800', label: 'GDP per person', note: 'Nominal, in US dollars \u2014 squeezed by the weaker yen', source: 'IMF, World Economic Outlook', year: 2024 },
   { value: '+2.7%', label: 'Consumer prices', note: 'Inflation is back after decades near zero', source: 'Statistics Bureau, CPI', year: 2024 },
   { value: '67.8M', label: 'People employed', note: 'Employment rate of 15\u201364 year-olds: 79.2%', source: 'Labour Force Survey / OECD', year: 2024 },
   { value: '\u00a51,055', label: 'Average minimum wage', note: 'Per hour, national weighted average from Oct 2024', source: 'MHLW', year: 2024 },
   { value: '\u00a54.60M', label: 'Average yearly salary', note: 'Private-sector employees, mean gross pay', source: 'National Tax Agency survey', year: 2023 },
-  { value: '1,607 hrs', label: 'Hours worked per year', note: 'Per worker \u2014 below the OECD average of 1,752', source: 'OECD', year: 2023 },
+  { value: '1,607 hrs', label: 'Hours worked per year', note: 'Per worker \u2014 below the OECD average', source: 'OECD', year: 2023 },
   { value: '\u00a58.1T', label: 'Visitor spending', note: '36.87 million visitors \u2014 both all-time records', source: 'JNTO / Japan Tourism Agency', year: 2024 },
 ];
 

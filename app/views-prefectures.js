@@ -24,9 +24,9 @@ export function render(el) {
       <table class="pf-table">
         <thead><tr>
           <th>#</th>
-          <th><button class="th-sort" data-sort="name">Prefecture</button></th>
+          <th><button class="th-sort" data-sort="name" data-label="Prefecture">Prefecture</button></th>
           <th>Capital</th><th>Region</th>
-          <th class="num"><button class="th-sort" data-sort="pop">Population</button></th>
+          <th class="num"><button class="th-sort" data-sort="pop" data-label="Population">Population</button></th>
           <th class="num">Share</th>
         </tr></thead>
         <tbody id="pf-body"></tbody>
@@ -58,6 +58,11 @@ export function render(el) {
       </tr>`).join('') || '<tr><td colspan="6" class="empty">No prefecture matches that search.</td></tr>';
     const sum = rows.reduce((a, p) => a + p.pop, 0);
     count.textContent = `${rows.length} of 47 prefectures \u00b7 ${sum.toLocaleString('en-US')} people`;
+    el.querySelectorAll('.th-sort').forEach((b) => {
+      const active = b.dataset.sort === sortKey;
+      b.textContent = b.dataset.label + (active ? (sortDir === 1 ? ' \u25b2' : ' \u25bc') : '');
+      b.closest('th').setAttribute('aria-sort', active ? (sortDir === 1 ? 'ascending' : 'descending') : 'none');
+    });
   };
   search.addEventListener('input', draw);
   region.addEventListener('change', draw);

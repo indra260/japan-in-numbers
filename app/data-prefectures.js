@@ -21,14 +21,14 @@ export const PREFECTURES = [
   { name: 'Kanagawa', capital: 'Yokohama', region: 'Kant\u014d', pop: 9237337 },
   { name: 'Niigata', capital: 'Niigata', region: 'Ch\u016bbu', pop: 2201272 },
   { name: 'Toyama', capital: 'Toyama', region: 'Ch\u016bbu', pop: 1034814 },
-  { name: 'Ishikawa', capital: 'Kanazawa', region: 'Ch\u016bbu', pop: 1132497 },
+  { name: 'Ishikawa', capital: 'Kanazawa', region: 'Ch\u016bbu', pop: 1132526 },
   { name: 'Fukui', capital: 'Fukui', region: 'Ch\u016bbu', pop: 766863 },
   { name: 'Yamanashi', capital: 'K\u014dfu', region: 'Ch\u016bbu', pop: 809974 },
   { name: 'Nagano', capital: 'Nagano', region: 'Ch\u016bbu', pop: 2048011 },
   { name: 'Gifu', capital: 'Gifu', region: 'Ch\u016bbu', pop: 1978742 },
   { name: 'Shizuoka', capital: 'Shizuoka', region: 'Ch\u016bbu', pop: 3633202 },
   { name: 'Aichi', capital: 'Nagoya', region: 'Ch\u016bbu', pop: 7542415 },
-  { name: 'Mie', capital: 'Tsu', region: 'Kansai', pop: 1770632 },
+  { name: 'Mie', capital: 'Tsu', region: 'Kansai', pop: 1770254 },
   { name: 'Shiga', capital: '\u014ctsu', region: 'Kansai', pop: 1413610 },
   { name: 'Kyoto', capital: 'Kyoto', region: 'Kansai', pop: 2578087 },
   { name: 'Osaka', capital: 'Osaka', region: 'Kansai', pop: 8837685 },
@@ -56,5 +56,5 @@ export const PREFECTURES = [
 
 export const PREFECTURE_FACTS = [
   { title: 'Tokyo outweighs whole regions', text: 'Tokyo\u2019s 14.0 million people are more than the entire T\u014dhoku region (8.6 million across six prefectures) or the whole island of Ky\u016bsh\u016b\u2019s seven prefectures minus Fukuoka. The smallest prefecture, Tottori (553,407), would fit into Tokyo 25 times over.' },
-  { title: 'Only a handful grew', text: 'Between the 2015 and 2020 censuses only nine prefectures gained people \u2014 Tokyo, its three neighbours, Aichi, Shiga, Osaka, Fukuoka and Okinawa. Akita shrank fastest, losing about 6% in five years.' },
+  { title: 'Only a handful grew', text: 'Between the 2015 and 2020 censuses only eight prefectures gained people \u2014 Tokyo, its three neighbours, Aichi, Shiga, Fukuoka and Okinawa. Akita shrank fastest, losing about 6% in five years.' },
 ];

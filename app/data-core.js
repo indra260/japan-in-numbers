@@ -37,5 +37,5 @@ export const AGE_SHARES = {
 export const OVERVIEW_FACTS = [
   { title: 'A peak already 16 years past', text: 'Japan\u2019s population topped out at 128.08 million in 2008 and has fallen every year since. The 2024 estimate, 123.80 million, is roughly the population of 1989 \u2014 with a completely different age shape.' },
   { title: 'One in three is nearly there', text: 'People aged 65+ numbered 36.2 million in 2024. Centenarians passed 95,000 in September 2024 \u2014 95,119 people, the 54th consecutive record, and nearly nine in ten of them women. (MHLW, 2024)' },
-  { title: 'Where everyone lives', text: 'The Greater Tokyo Area alone holds about 36.9 million people \u2014 more than Canada. The three great metro areas (Tokyo, Ch\u016bs\u014d/Osaka-Kansai and Nagoya) hold just over half the nation on a fraction of its land.' },
+  { title: 'Where everyone lives', text: 'The Greater Tokyo Area alone holds about 36.9 million people \u2014 more than the whole of Malaysia. The three great metro areas (Tokyo, Ch\u016bs\u014d/Osaka-Kansai and Nagoya) hold just over half the nation on a fraction of its land.' },
 ];

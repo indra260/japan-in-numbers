@@ -14,16 +14,18 @@ function niceMax(v) {
 const fmt = (v, d = 0) => v.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d });
 
 // Multi-series line chart. series: [{label, color, points: [[x, y], ...]}]
-export function lineChart({ series, width = 720, height = 300, yLabel = '', yDecimals = 0 }) {
+// yFloor optionally raises the axis baseline for series that live in a narrow
+// band far from zero (e.g. life expectancy): the ticks still show true values.
+export function lineChart({ series, width = 720, height = 300, yLabel = '', yDecimals = 0, yFloor = null }) {
   const padL = 52, padR = 14, padT = 14, padB = 30;
   const xs = series.flatMap((s) => s.points.map((p) => p[0]));
   const ys = series.flatMap((s) => s.points.map((p) => p[1]));
   const xMin = Math.min(...xs), xMax = Math.max(...xs);
   const yMax = niceMax(Math.max(...ys) * 1.05);
-  const yMin = Math.min(0, Math.min(...ys));
+  const yMin = yFloor !== null ? yFloor : Math.min(0, Math.min(...ys));
   const X = (x) => padL + ((x - xMin) / (xMax - xMin)) * (width - padL - padR);
   const Y = (y) => padT + (1 - (y - yMin) / (yMax - yMin)) * (height - padT - padB);
-  let out = `<svg viewBox="0 0 ${width} ${height}" role="img" class="chart">`;
+  let out = `<svg viewBox="0 0 ${width} ${height}" role="img" class="chart"><title>${series.map((s) => s.label).join('; ')}</title>`;
   for (let i = 0; i <= 4; i++) {
     const v = yMin + ((yMax - yMin) * i) / 4, y = Y(v);
     out += `<line x1="${padL}" y1="${y}" x2="${width - padR}" y2="${y}" stroke="${GRID}"/><text x="${padL - 8}" y="${y + 4}" text-anchor="end" class="tick">${fmt(v, yDecimals)}</text>`;
@@ -60,6 +62,8 @@ export function barChart({ rows, width = 720, rowH = 34, unit = '', decimals = 0
 }
 
 // Vertical grouped bars for two series (births vs deaths). rows: [{year, a, b}]
+// — the values MUST be under the keys a and b; views map their named fields
+// (e.g. births/deaths) onto a/b, or every bar silently collapses to height 0.
 export function groupedBars({ rows, aLabel, bLabel, width = 720, height = 300, unit = '' }) {
   const padL = 52, padR = 10, padT = 14, padB = 30;
   const max = niceMax(Math.max(...rows.flatMap((r) => [r.a, r.b])) * 1.05);
